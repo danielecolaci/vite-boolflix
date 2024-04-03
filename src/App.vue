@@ -11,19 +11,30 @@ export default {
   },
   data() {
     return {
-      state
+      state,
+      movies: []
     }
   },
-  mounted() {
-    this.state.callApi(this.state.key_api_url)
+  methods: {
+    searchContents(query) {
+      console.log(query);
+      this.state.callApi(this.state.key_api_url + '&query=' + query)
+        .then(response => {
+          console.log(response);
+          this.movies = response.data.results;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
   }
 }
 </script>
 
 <template>
 
-  <AppHeader />
-  <AppMain />
+  <AppHeader @search="searchContents" />
+  <AppMain :movies="movies" />
 
 </template>
 
