@@ -1,7 +1,14 @@
 <script>
 import { state } from './state.js'
 
+import AppMain from './components/AppMain.vue'
+import AppHeader from './components/Appheader.vue'
+
 export default {
+  components: {
+    AppHeader,
+    AppMain
+  },
   data() {
     return {
       state
@@ -13,6 +20,11 @@ export default {
 }
 </script>
 
-<template></template>
+<template>
+
+  <AppHeader />
+  <AppMain />
+
+</template>
 
 <style scoped></style>
