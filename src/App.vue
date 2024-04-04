@@ -12,12 +12,13 @@ export default {
   data() {
     return {
       state,
-      movies: []
+      movies: [],
+      series: []
     }
   },
   methods: {
     searchContents(query) {
-      this.state.callApi(this.state.key_api_url + '&query=' + query)
+      this.state.callApi(this.state.movie_api_url + '&query=' + query)
         .then(response => {
           console.log(response.data.results);
           this.movies = response.data.results;
@@ -25,6 +26,17 @@ export default {
         .catch(error => {
           console.error('Error:', error);
         });
+
+      this.state.callApi(this.state.tv_api_url + '&query=' + query)
+        .then(response => {
+          console.log(response.data.results);
+          this.series = response.data.results;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+
     }
   }
 }
@@ -33,7 +45,7 @@ export default {
 <template>
 
   <AppHeader @search="searchContents" />
-  <AppMain :movies="movies" />
+  <AppMain :movies="movies" :series="series" />
 
 </template>
 
