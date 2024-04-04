@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         search() {
-            console.log(this.query);
+            /* console.log(this.query); */
             this.$emit('search', this.query)
         }
     }
@@ -18,7 +18,7 @@ export default {
 
 <template>
     <div>
-        <input type="text" placeholder="Cerca un film" v-model="query">
+        <input type="text" placeholder="Cerca un film" v-model="query" @keyup.enter="search">
         <button @click="search">Search</button>
     </div>
 </template>

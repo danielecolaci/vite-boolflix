@@ -17,10 +17,9 @@ export default {
   },
   methods: {
     searchContents(query) {
-      console.log(query);
       this.state.callApi(this.state.key_api_url + '&query=' + query)
         .then(response => {
-          console.log(response);
+          console.log(response.data.results);
           this.movies = response.data.results;
         })
         .catch(error => {
