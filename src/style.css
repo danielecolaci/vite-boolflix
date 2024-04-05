@@ -5,25 +5,38 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.list {
+body {
+    background-color: black;
+}
+
+.flex {
     display: flex;
+}
+
+h2 {
+    color: white;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.list {
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .content {
     position: relative;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    height: 480px;
+    height: 360px;
 }
 
 .info {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     color: white;
-    width: 342px;
+    width: 256px;
     position: absolute;
     bottom: 0;
     opacity: 0;
@@ -36,7 +49,7 @@
 
 .image {
     position: relative;
-    width: 342px;
+    width: 256px;
     height: 100%;
 }
 

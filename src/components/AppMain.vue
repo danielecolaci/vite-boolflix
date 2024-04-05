@@ -32,10 +32,10 @@ export default {
 </script>
 
 <template>
-    <div>
+    <main>
         <h2>Results Movies</h2>
-        <div class="list" v-if="movies.length > 0">
-            <div class="content" v-for="movie in movies" :key="movie.id">
+        <div class="list flex" v-if="movies.length > 0">
+            <div class="content flex" v-for="movie in movies" :key="movie.id">
                 <div class="image">
                     <img :src="imageUrl(movie.poster_path)" alt="">
                 </div>
@@ -58,8 +58,8 @@ export default {
         <p v-else>No movies found</p>
 
         <h2>Results Tv Series</h2>
-        <div class="list" v-if="series.length > 0">
-            <div class="content" v-for="serie in series" :key="serie.id">
+        <div class="list flex" v-if="series.length > 0">
+            <div class="content flex" v-for="serie in series" :key="serie.id">
                 <div class="image">
                     <img :src="imageUrl(serie.poster_path)" alt="">
                 </div>
@@ -80,7 +80,11 @@ export default {
             </div>
         </div>
         <p v-else>No series found</p>
-    </div>
+    </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+    margin: 20px 20%;
+}
+</style>
