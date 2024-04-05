@@ -48,10 +48,16 @@ export default {
                     </div>
                     <p v-else>Language: {{ movie.original_language }}</p>
 
-                    <div>
+                    <p>{{ movie.overview }}</p>
+
+                    <div v-if="movie.vote_count !== 0" class="vote">
                         <i v-for="star in 5" :key="star" :class="[starNumber(star, movie.vote_average), 'fa-star']"></i>
-                        <span> ({{ movie.vote_count }})</span>
+                        <span class="count"> ({{ movie.vote_count }})</span>
                     </div>
+
+                    <button class="play">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -72,10 +78,16 @@ export default {
                     </div>
                     <p v-else>Language: {{ serie.original_language }}</p>
 
-                    <div>
+                    <p>{{ serie.overview }}</p>
+
+                    <div v-if="serie.vote_count !== 0" class="vote">
                         <i v-for="star in 5" :key="star" :class="[starNumber(star, serie.vote_average), 'fa-star']"></i>
-                        <span> ({{ serie.vote_count }})</span>
+                        <span class="count"> ({{ serie.vote_count }})</span>
                     </div>
+
+                    <button class="play">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
                 </div>
             </div>
         </div>

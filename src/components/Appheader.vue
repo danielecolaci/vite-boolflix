@@ -55,5 +55,12 @@ button {
     color: white;
     font-weight: 500;
     margin-left: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s ease;
 }
 </style>
