@@ -21,7 +21,7 @@ export default {
       this.state.callApi(this.state.movie_api_url + '&query=' + query)
         .then(response => {
           console.log(response.data.results);
-          this.movies = response.data.results;
+          this.movies = response.data.results.filter(movie => movie.poster_path !== null);
         })
         .catch(error => {
           console.error('Error:', error);
@@ -30,7 +30,7 @@ export default {
       this.state.callApi(this.state.tv_api_url + '&query=' + query)
         .then(response => {
           console.log(response.data.results);
-          this.series = response.data.results;
+          this.series = response.data.results.filter(serie => serie.poster_path !== null);
         })
         .catch(error => {
           console.error('Error:', error);
