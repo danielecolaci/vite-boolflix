@@ -13,7 +13,8 @@ export default {
     return {
       state,
       movies: [],
-      series: []
+      series: [],
+      searched: false
     }
   },
   methods: {
@@ -36,7 +37,7 @@ export default {
           console.error('Error:', error);
         });
 
-
+      this.searched = true
     }
   }
 }
@@ -45,7 +46,7 @@ export default {
 <template>
 
   <AppHeader @search="searchContents" />
-  <AppMain :movies="movies" :series="series" />
+  <AppMain :movies="movies" :series="series" :searched="searched" />
 
 </template>
 

@@ -1,10 +1,10 @@
 <script>
 export default {
     name: 'AppMain',
-    props: ['movies', 'series'],
+    props: ['movies', 'series', 'searched'],
     data() {
         return {
-            languages: ['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'ru', 'zh']
+            languages: ['ar', 'de', 'en', 'es', 'fr', 'hi', 'it', 'ja', 'ko', 'pt', 'ru', 'zh'],
         }
     },
     methods: {
@@ -37,7 +37,13 @@ export default {
         <div class="gradient"></div>
     </div>
     <main>
-        <h2>Results Movies</h2>
+
+        <div class="hello" v-if="!searched">
+            <h1>Unlimited movies, TV shows, and more</h1>
+            <h3>Search your favorite Movies and Series</h3>
+        </div>
+
+        <h2 v-if="movies.length > 0">Results Movies</h2>
         <div class="list flex" v-if="movies.length > 0">
             <div class="content flex" v-for="movie in movies" :key="movie.id">
                 <div class="image">
@@ -67,7 +73,7 @@ export default {
         </div>
         <p v-else>No movies found</p>
 
-        <h2>Results Tv Series</h2>
+        <h2 v-if="series.length > 0">Results Tv Series</h2>
         <div class="list flex" v-if="series.length > 0">
             <div class="content flex" v-for="serie in series" :key="serie.id">
                 <div class="image">
