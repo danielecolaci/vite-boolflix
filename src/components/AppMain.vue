@@ -32,6 +32,10 @@ export default {
 </script>
 
 <template>
+    <div class="back">
+        <img src="/image/background.jpg" alt="">
+        <div class="gradient"></div>
+    </div>
     <main>
         <h2>Results Movies</h2>
         <div class="list flex" v-if="movies.length > 0">
